@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  mysql-db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: mysql-db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: l!-@Aq2FvE3p
+      MYSQL_DATABASE: ARDEP
+      MYSQL_USER: user01
+      MYSQL_PASSWORD: USER01USER01
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    networks:
+      - mi_red
+
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql-db
+    networks:
+      - mi_red
+networks:
+  mi_red:
