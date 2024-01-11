@@ -18,7 +18,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `ARDEP`.`jobs` (
   `id` INT NOT NULL,
   `job` VARCHAR(60) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
