@@ -18,20 +18,14 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `ARDEP`.`jobs` (
   `id` INT NOT NULL,
   `job` VARCHAR(60) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_jobs_departments_idx` (`department_id` ASC) VISIBLE,
-  CONSTRAINT `fk_jobs_departments`
-    FOREIGN KEY (`department_id`)
-    REFERENCES `ARDEP`.`departments` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `ARDEP`.`employees`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ARDEP`.`employees` (
+CREATE TABLE IF NOT EXISTS `ARDEP`.`hired_employees` (
   `id` INT NOT NULL,
   `job_id` INT NOT NULL,
   `name` INT NOT NULL,
