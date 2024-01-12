@@ -4,7 +4,7 @@ from db_tools import save_to_database
 ALLOWED_EXTENSIONS = {'csv'}
 # Valid file Patterns including Metadata to upload into Database
 VALID_FILENAMES = {'departments.csv':       {'table': 'departments', 'pk': 'id', 'columns': ('id', 'department')}, 
-                   'hired_employees.csv':   {'table': 'hired_employees', 'pk': 'id', 'columns': ('id', 'name', 'datetime', 'job_id')}, 
+                   'hired_employees.csv':   {'table': 'hired_employees', 'pk': 'id', 'columns': ('id', 'name', 'datetime', 'department_id','job_id')}, 
                    'jobs.csv':              {'table': 'jobs', 'pk': 'id', 'columns': ('id', 'job')}}
 
 def allowed_file(filename):
