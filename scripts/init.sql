@@ -27,16 +27,21 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ARDEP`.`hired_employees` (
   `id` INT NOT NULL,
-  `job_id` INT NOT NULL,
-  `name` INT NOT NULL,
+  `name` VARCHAR(255) NOT NULL,  -- Assuming name is a string, change the data type accordingly
   `datetime` DATETIME NOT NULL,
+  `department_id` INT NOT NULL,
+  `job_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_employees_jobs1_idx` (`job_id` ASC) VISIBLE,
+  INDEX `fk_employees_jobs1_idx` (`job_id` ASC),
   CONSTRAINT `fk_employees_jobs1`
     FOREIGN KEY (`job_id`)
-    REFERENCES `ARDEP`.`jobs` (`id`)
+    REFERENCES `ARDEP`.`jobs` (`id`),
+  CONSTRAINT `fk_employees_departments1`
+    FOREIGN KEY (`department_id`)
+    REFERENCES `ARDEP`.`departments` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+
 ENGINE = InnoDB;
 
 
