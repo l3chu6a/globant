@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `ARDEP`.`hired_employees` (
   `id` INT NOT NULL,
   `name` VARCHAR(255) NOT NULL,  -- Assuming name is a string, change the data type accordingly
-  `datetime` DATETIME NOT NULL,
-  `department_id` INT NOT NULL,
-  `job_id` INT NOT NULL,
+  `datetime` DATETIME NULL,
+  `department_id` INT NULL,
+  `job_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_employees_jobs1_idx` (`job_id` ASC),
   CONSTRAINT `fk_employees_jobs1`

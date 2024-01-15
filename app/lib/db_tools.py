@@ -23,7 +23,7 @@ def save_to_database(data: dict, metadata: dict) -> None:
 
     table = metadata['table']
     columns = tuple(column for column in data.keys())
-    values = tuple(value for value in data.values())
+    values = tuple(value if value not in ('NULL', '') else None for value in data.values())
 
     if columns != metadata['columns']:
         raise Exception('File has different columns than expected.')
